@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SAAS Translation Chat App
+
+This app is built with Next.js 13. 
 
 ## Getting Started
 
@@ -6,31 +8,46 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Frontend
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Styling 
 
-## Learn More
+Uses [Chadcn](https://ui.shadcn.com/docs) for components and styling.
+Chadcn has design components that you can copy and paste into your project using the command line. 
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npx shadcn-ui@latest init
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- You can add components in the command line and it will generate the code for you to copy and paste into your project.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+npx shadcn-ui@latest add button
+```
 
-## Deploy on Vercel
+- This adds a folder in your components folder called ui with a new button component.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Using Shadcn for:
+- [dark mode](https://ui.shadcn.com/docs/dark-mode)
+- [dropdown](https://ui.shadcn.com/docs/components/dropdown-menu)
+- [avatar w/ dropdown](https://ui.shadcn.com/docs/components/avatar)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Icons from [Lucide-React](https://lucide.dev/guide/packages/lucide-react)
+
+
+## Authentication
+
+Uses [NextAuth.js](https://next-auth.js.org/getting-started/example) for authentication.
+[Guide](https://next-auth.js.org/configuration/initialization#route-handlers-app) for using NextAuth.js with Next.js 13.
+
+- Using GoogleAuth through firebase with NextAuth for authentication.
+- [Firebase](https://firebase.google.com/docs/auth/web/google-signin) for Google Sign-In.
+
+Using middleware to protect routes that require authentication. Checkout [middleware.ts](middleware.ts) for more information.
+
+- Created a ClientProvider to wrap the entire app in the layout.tsx file. This allows us to access the session object in any component.
+

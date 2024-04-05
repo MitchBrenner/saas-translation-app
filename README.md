@@ -51,3 +51,14 @@ Using middleware to protect routes that require authentication. Checkout [middle
 
 - Created a ClientProvider to wrap the entire app in the layout.tsx file. This allows us to access the session object in any component.
 
+## Database
+
+Using [firestore]() from firebase for the database.
+
+You need two firebase files:
+1. `firebase.json` for the client side
+2. `firebase-admin.json` for the server side
+    - have access to everything in the firebase project
+    - npm i firebase-admin
+    - [npm install @auth/firebase-adapter firebase-admin](https://authjs.dev/reference/adapter/firebase?_gl=1*1howmno*_gcl_au*ODQ2Njc2NTMuMTcxMjAyMzU2OC4yODc5OTc0NzEuMTcxMjAyNDA2MC4xNzEyMDI0MDYw)
+    - to get firebase api keys and other info go under project settings -> service accounts -> generate new private key
